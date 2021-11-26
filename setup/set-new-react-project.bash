@@ -35,12 +35,6 @@ setup-react-static() {
 }
 
 
-setup-kubernetes() {
-	mv ./setup/Dockerfile ./
-	mv ./setup/manifest ./
-}
-
-
 copy-react-apps() {
 	mv ./setup/apps/urls.py ./${name}/${name}/urls.py
 	mv ./setup/apps/* ./${name}/
@@ -70,7 +64,6 @@ start-react-project
 update-project-name
 # setup-react-settings
 # setup-react-static
-setup-kubernetes
 # copy-react-apps
 # setup-heroku
 # remove-setup-files
