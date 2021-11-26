@@ -14,7 +14,7 @@ make
 ```
 
 
-## Install requirements.txt & Migrate
+## Install Node Modules
 ```bash
 make install
 ```

@@ -12,7 +12,7 @@ init:
 
 
 install:
-	echo install
+	${CD} npm install
 
 
 # make test args=my_app
