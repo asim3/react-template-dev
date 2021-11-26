@@ -67,10 +67,10 @@ setup-heroku() {
 
 
 start-react-project
-# update-project-name
+update-project-name
 # setup-react-settings
 # setup-react-static
-# setup-kubernetes
+setup-kubernetes
 # copy-react-apps
 # setup-heroku
 # remove-setup-files
