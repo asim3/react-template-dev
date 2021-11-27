@@ -17,25 +17,39 @@ start-react-project() {
 
 update-project-name() {
 	sed -i -e "s/my_project_name/${name}/g" ./Makefile
-	sed -i -e "s/my_project_name/${name}/g" ./README.md 
+	sed -i -e "s/my_project_name/${name}/g" ./README.md
+	sed -i -e "s/<title>React App<\/title>/<title>${name}<\/title>/g" ./${name}/public/index.html
+}
+
+
+setup-react-public() {
+	static_path=./${name}/public/static
+	images_path=./${static_path}/images
+	
+	mkdir -p ${images_path}
+	
+	mv ./${name}/public/favicon.ico ${images_path}/favicon.ico
+	mv ./${name}/public/logo192.png ${images_path}/logo192.png
+	mv ./${name}/public/logo512.png ${images_path}/logo512.png
+
+	sed -i -e "s/\/favicon.ico/\/static\/images\/favicon.ico/g" ./${name}/public/index.html
+	sed -i -e "s/\/logo192.png/\/static\/images\/logo192.png/g" ./${name}/public/index.html
+	sed -i -e "s/\/logo512.png/\/static\/images\/logo512.png/g" ./${name}/public/index.html
+
+	sed -i -e "s/favicon.ico/static\/images\/favicon.ico/g" ./${name}/public/manifest.json
+	sed -i -e "s/logo192.png/static\/images\/logo192.png/g" ./${name}/public/manifest.json
+	sed -i -e "s/logo512.png/static\/images\/logo512.png/g" ./${name}/public/manifest.json
 }
 
 
 # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-setup-react-settings() {
-	mkdir ./${name}/${name}/settings/
-	mv ./${name}/${name}/settings.py ./${name}/${name}/settings/base.py
-	mv ./setup/settings/* ./${name}/${name}/settings/
-}
-
-
-setup-react-static() {
+setup-react-src() {
 	mkdir -p ./${name}/static_resources/
 	mv ./setup/static_resources/* ./${name}/static_resources/
 }
 
 
-copy-react-apps() {
+copy-react-src() {
 	mv ./setup/apps/urls.py ./${name}/${name}/urls.py
 	mv ./setup/apps/* ./${name}/
 }
@@ -62,9 +76,9 @@ setup-heroku() {
 
 start-react-project
 update-project-name
-# setup-react-settings
-# setup-react-static
-# copy-react-apps
+setup-react-public
+# setup-react-src
+# copy-react-src
 # setup-heroku
 # remove-setup-files
 # commit-and-push
