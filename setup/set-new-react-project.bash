@@ -22,12 +22,9 @@ update-project-name() {
 }
 
 
-setup-react-public() {
-	static_path=./${name}/public/static
-	images_path=./${static_path}/images
-	
-	mkdir -p ${images_path}
-	
+move-react-static() {
+	images_path=./${name}/public/static/images
+
 	mv ./${name}/public/favicon.ico ${images_path}/favicon.ico
 	mv ./${name}/public/logo192.png ${images_path}/logo192.png
 	mv ./${name}/public/logo512.png ${images_path}/logo512.png
@@ -39,6 +36,13 @@ setup-react-public() {
 	sed -i -e "s/favicon.ico/static\/images\/favicon.ico/g" ./${name}/public/manifest.json
 	sed -i -e "s/logo192.png/static\/images\/logo192.png/g" ./${name}/public/manifest.json
 	sed -i -e "s/logo512.png/static\/images\/logo512.png/g" ./${name}/public/manifest.json
+}
+
+
+setup-react-public() {
+	mv ./setup/public/* ./${name}/public/
+	
+	move-react-static
 }
 
 
@@ -77,6 +81,7 @@ setup-heroku() {
 start-react-project
 update-project-name
 setup-react-public
+copy-react-public
 # setup-react-src
 # copy-react-src
 # setup-heroku
