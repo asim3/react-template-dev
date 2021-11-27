@@ -46,8 +46,22 @@ setup-react-public() {
 }
 
 
+delete-react-src-app() {
+	rm ./${name}/src/App.css
+	rm ./${name}/src/App.js
+	rm ./${name}/src/App.test.js
+}
+
+
 copy-react-src() {
+	delete-react-src-app
+
 	mv ./setup/src/* ./${name}/src/
+}
+
+
+setup-react-index() {
+	sed -i -e "s/'.\/App'/'.\/screens\/App'/g" ./${name}/src/index.js
 }
 
 
@@ -75,6 +89,7 @@ start-react-project
 update-project-name
 setup-react-public
 copy-react-src
+setup-react-index
 # setup-heroku
 # remove-setup-files
 # commit-and-push
