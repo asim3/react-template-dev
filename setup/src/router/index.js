@@ -1,56 +1,56 @@
-import React from "react";
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
+    BrowserRouter,
+    Routes,
+    Route
 } from "react-router-dom";
 
-export default function App() {
-    return (
-        <Router>
-            <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/users">Users</Link>
-                        </li>
-                    </ul>
-                </nav>
 
-                {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-                <Switch>
-                    <Route path="/about">
-                        <About />
-                    </Route>
-                    <Route path="/users">
-                        <Users />
-                    </Route>
-                    <Route path="/">
-                        <Home />
-                    </Route>
-                </Switch>
-            </div>
-        </Router>
+function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/user" element={<User />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/" element={<Home />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
-function Home() {
-    return <h2>Home</h2>;
+
+function Links() {
+    return (
+        <div>
+            <br />
+            <br />
+            <a href="/">home</a> <br />
+            <a href="/login">login</a> <br />
+            <a href="/user">user</a> <br />
+            <a href="/about">about</a> <br />
+        </div>
+    );
 }
+
+
+function Home() {
+    return <h2>Home <Links /></h2>;
+}
+
 
 function About() {
-    return <h2>About</h2>;
+    return <h2>About <Links /></h2>;
 }
 
-function Users() {
-    return <h2>Users</h2>;
+
+function User() {
+    return <h2>User <Links /></h2>;
 }
 
+
+function Login() {
+    return <h2>Login <Links /></h2>;
+}
+
+
+export default App;

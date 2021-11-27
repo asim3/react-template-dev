@@ -12,8 +12,9 @@ read name
 
 start-react-project() {
 	npx create-react-app ${name}
-	npm install react-router-dom
-	# npm install react-redux
+	cd ./${name} && npm install react-router-dom
+	# cd ./${name} && npm install react-redux
+	cd ..
 }
 
 
@@ -63,7 +64,7 @@ copy-react-src() {
 
 
 setup-react-index() {
-	sed -i -e "s/'.\/App'/'.\/screens\/App'/g" ./${name}/src/index.js
+	sed -i -e "s/'.\/App'/'.\/router'/g" ./${name}/src/index.js
 }
 
 
@@ -74,10 +75,6 @@ setup-heroku() {
 	echo "python-3.9.6" > ./runtime.txt
 }
 
-
-# remove-setup-files() {
-# 	rm -rf ./setup/
-# }
 
 # commit-and-push() {
 # 	code .
@@ -93,5 +90,4 @@ setup-react-public
 copy-react-src
 setup-react-index
 # setup-heroku
-# remove-setup-files
 # commit-and-push
