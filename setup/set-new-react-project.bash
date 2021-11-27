@@ -12,6 +12,8 @@ read name
 
 start-react-project() {
 	npx create-react-app ${name}
+	npm install react-router-dom
+	# npm install react-redux
 }
 
 
