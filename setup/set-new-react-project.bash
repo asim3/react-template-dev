@@ -46,19 +46,12 @@ setup-react-public() {
 }
 
 
-# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-setup-react-src() {
-	mkdir -p ./${name}/static_resources/
-	mv ./setup/static_resources/* ./${name}/static_resources/
-}
-
-
 copy-react-src() {
-	mv ./setup/apps/urls.py ./${name}/${name}/urls.py
-	mv ./setup/apps/* ./${name}/
+	mv ./setup/src/* ./${name}/src/
 }
 
 
+# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 setup-heroku() {
 	echo "release: cd ${name} && python3 manage.py migrate" > ./Procfile
 	echo "web: gunicorn --chdir ${name} --workers 3 ${name}.wsgi" >> ./Procfile
@@ -81,9 +74,7 @@ setup-heroku() {
 start-react-project
 update-project-name
 setup-react-public
-copy-react-public
-# setup-react-src
-# copy-react-src
+copy-react-src
 # setup-heroku
 # remove-setup-files
 # commit-and-push
