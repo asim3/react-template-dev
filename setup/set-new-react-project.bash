@@ -12,7 +12,10 @@ read name
 
 start-react-project() {
 	npx create-react-app ${name}
-	cd ./${name} && npm install react-router-dom
+	cd ./${name} && npm install \
+		react-router-dom \
+		react-bootstrap \
+		bootstrap@5
 	# cd ./${name} && npm install react-redux
 	cd ..
 }

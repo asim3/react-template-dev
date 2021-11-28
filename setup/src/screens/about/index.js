@@ -1,8 +1,6 @@
-import Links from "../../components/links";
-
 
 function About() {
-    return <h2>About <Links /></h2>;
+    return <h2>About</h2>;
 }
 
 

@@ -1,8 +1,7 @@
-import Links from "../../components/links";
 
 
 function User() {
-    return <h2>User <Links /></h2>;
+    return <h2>User</h2>;
 }
 
 
