@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import URLs from "./urls";
-import NavigationHeader from "./navigation";
+import NavigationHeader from "../components/Navigation";
 
 
 function App() {
