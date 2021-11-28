@@ -24,7 +24,6 @@ start-react-project() {
 update-project-name() {
 	sed -i -e "s/my_project_name/${name}/g" ./Makefile
 	sed -i -e "s/my_project_name/${name}/g" ./README.md
-	sed -i -e "s/<title>React App<\/title>/<title>${name}<\/title>/g" ./${name}/public/index.html
 }
 
 
@@ -34,10 +33,6 @@ move-react-static() {
 	mv ./${name}/public/favicon.ico ${images_path}/favicon.ico
 	mv ./${name}/public/logo192.png ${images_path}/logo192.png
 	mv ./${name}/public/logo512.png ${images_path}/logo512.png
-
-	sed -i -e "s/\/favicon.ico/\/static\/images\/favicon.ico/g" ./${name}/public/index.html
-	sed -i -e "s/\/logo192.png/\/static\/images\/logo192.png/g" ./${name}/public/index.html
-	sed -i -e "s/\/logo512.png/\/static\/images\/logo512.png/g" ./${name}/public/index.html
 
 	sed -i -e "s/favicon.ico/static\/images\/favicon.ico/g" ./${name}/public/manifest.json
 	sed -i -e "s/logo192.png/static\/images\/logo192.png/g" ./${name}/public/manifest.json
@@ -68,6 +63,8 @@ copy-react-src() {
 
 setup-react-index() {
 	sed -i -e "s/'.\/App'/'.\/router'/g" ./${name}/src/index.js
+
+	sed -i -e "s/Project Name/${name}/g" ./${name}/public/index.html
 }
 
 
