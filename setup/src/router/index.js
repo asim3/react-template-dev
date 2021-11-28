@@ -3,6 +3,11 @@ import {
     Routes,
     Route
 } from "react-router-dom";
+import Home from '../screens/home'
+import About from '../screens/about'
+import User from '../screens/user'
+import Login from '../screens/login'
+
 
 
 function App() {
@@ -17,40 +22,5 @@ function App() {
         </BrowserRouter>
     );
 }
-
-
-function Links() {
-    return (
-        <div>
-            <br />
-            <br />
-            <a href="/">home</a> <br />
-            <a href="/login">login</a> <br />
-            <a href="/user">user</a> <br />
-            <a href="/about">about</a> <br />
-        </div>
-    );
-}
-
-
-function Home() {
-    return <h2>Home <Links /></h2>;
-}
-
-
-function About() {
-    return <h2>About <Links /></h2>;
-}
-
-
-function User() {
-    return <h2>User <Links /></h2>;
-}
-
-
-function Login() {
-    return <h2>Login <Links /></h2>;
-}
-
 
 export default App;
