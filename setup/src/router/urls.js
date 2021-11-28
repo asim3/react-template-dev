@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from '../screens/home'
-import About from '../screens/about'
-import User from '../screens/user'
-import Login from '../screens/login'
+import Home from '../screens/Home'
+import About from '../screens/About'
+import User from '../screens/User'
+import Login from '../screens/Login'
 import App from '../screens/App'
 
 
