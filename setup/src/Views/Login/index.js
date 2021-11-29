@@ -1,7 +1,8 @@
+import Loading from "../../components/Loading";
 
 
 function Login() {
-    return <h2>Login</h2>;
+    return <Loading />;
 }
 
 
