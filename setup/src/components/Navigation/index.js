@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import URLs from '../../Views/URLs'
+import URLs from '../../URLs'
 
 
 function filter_routes(data) {

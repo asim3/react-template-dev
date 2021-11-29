@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
-import NavigationHeader from "../components/Navigation";
-import Screens from "../components/Screens";
+import NavigationHeader from "./components/Navigation";
+import Screens from "./components/Screens";
 
 
 function App() {

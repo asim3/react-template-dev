@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import URLs from '../../Views/URLs'
+import URLs from '../../URLs'
 
 
 function filter_routes(data) {

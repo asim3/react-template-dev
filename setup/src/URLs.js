@@ -1,8 +1,8 @@
-import Home from './Home'
-import About from './About'
-import User from './User'
-import Login from './Login'
-import App from './App'
+import Home from './Views/Home'
+import About from './Views/About'
+import User from './Views/User'
+import Login from './Views/Login'
+import App from './Views/App'
 
 
 const URLs = [

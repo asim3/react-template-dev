@@ -55,18 +55,14 @@ delete-react-src-app() {
 
 
 copy-react-src() {
-	delete-react-src-app
-
 	mv ./setup/src/* ./${name}/src/
 }
 
 
-setup-react-index() {
-	sed -i -e "s/'.\/App'/'.\/Views'/g" ./${name}/src/index.js
-
+setup-react-project-name() {
 	sed -i -e "s/Project Name/${name}/g" ./${name}/public/index.html
 
-	sed -i -e "s/Project Name/${name}/g" ./${name}/src/Views/index.js
+	sed -i -e "s/Project Name/${name}/g" ./${name}/src/App.js
 }
 
 
@@ -89,7 +85,8 @@ setup-heroku() {
 start-react-project
 update-project-name
 setup-react-public
+delete-react-src-app
 copy-react-src
-setup-react-index
+setup-react-project-name
 # setup-heroku
 # commit-and-push
