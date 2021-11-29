@@ -6,11 +6,11 @@ import App from './App'
 
 
 const URLs = [
-    { path: "/login", element: <Login />, navigation_order: 1 },
-    { path: "/user", element: <User />, navigation_order: 2 },
-    { path: "/about", element: <About />, navigation_order: 3 },
-    { path: "/app", element: <App />, navigation_order: 4 },
-    { path: "/", element: <Home />, navigation_order: 99 },
+    { name: "Login", path: "/login", element: <Login />, route_order: 1, navbar_order: 3 },
+    { name: "User", path: "/user", element: <User />, route_order: 2, navbar_order: 4 },
+    { name: "About", path: "/about", element: <About />, route_order: 3, navbar_order: 2 },
+    { name: "App", path: "/app", element: <App />, route_order: 4, navbar_order: 1 },
+    { name: "Home", path: "/", element: <Home />, route_order: 99, navbar_order: 0 },
 ]
 
 

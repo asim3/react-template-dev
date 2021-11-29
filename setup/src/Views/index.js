@@ -6,7 +6,7 @@ import Screens from "../components/Screens";
 function App() {
     return (
         <BrowserRouter>
-            <NavigationHeader />
+            <NavigationHeader name="Project Name" />
             <Screens />
         </BrowserRouter>
     );
