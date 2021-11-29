@@ -62,7 +62,7 @@ copy-react-src() {
 
 
 setup-react-index() {
-	sed -i -e "s/'.\/App'/'.\/router'/g" ./${name}/src/index.js
+	sed -i -e "s/'.\/App'/'.\/Views'/g" ./${name}/src/index.js
 
 	sed -i -e "s/Project Name/${name}/g" ./${name}/public/index.html
 }

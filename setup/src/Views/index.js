@@ -1,13 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
-import URLs from "./urls";
 import NavigationHeader from "../components/Navigation";
+import Screens from "../components/Screens";
 
 
 function App() {
     return (
         <BrowserRouter>
             <NavigationHeader />
-            <URLs />
+            <Screens />
         </BrowserRouter>
     );
 }
