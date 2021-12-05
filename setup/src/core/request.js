@@ -1,4 +1,4 @@
-import handle_response from './response';
+import handle_response, { handle_error_response } from './response';
 
 
 
@@ -17,11 +17,12 @@ function get_headers(_content, extra_headers = {}) {
 
 
 async function get(url, set_function) {
-    const response = await fetch(url);
-    const content = await handle_response(response)
-    console.log(content)
-    const aaaa = JSON.stringify(content)
-    return set_function(aaaa)
+    try {
+        const response = await fetch(url);
+        return await handle_response(response)
+    } catch (error) {
+        return handle_error_response(error)
+    }
 }
 
 
