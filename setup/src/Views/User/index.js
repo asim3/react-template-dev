@@ -13,6 +13,11 @@ const users_list = [
 ]
 
 
+// function Users2() {
+//     return <Users users_list={users_list} />
+// }
+
+
 function Users() {
     return users_list.map(data => <User name={data.name} photo={data.photo} />)
 }

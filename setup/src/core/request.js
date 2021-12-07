@@ -1,4 +1,4 @@
-import handle_response, { handle_error_response } from './response';
+import handle_error_response from './response';
 
 
 
@@ -16,18 +16,20 @@ function get_headers(_content, extra_headers = {}) {
 }
 
 
-async function get(url, set_function) {
+async function get(url, callback) {
     try {
-        const response = await fetch(url);
-        return await handle_response(response)
+        return await fetch(url)
+            .then(response => response.json())
+            .then(callback, handle_error_response)
+            .catch(handle_error_response)
     } catch (error) {
         return handle_error_response(error)
     }
 }
 
 
-async function post(url, set_function, content = {}, extra_body = {}) {
-    const body = {
+async function post(url, callback, content = {}, extra_context = {}) {
+    const context = {
         method: "POST",
         body: JSON.stringify(content),
         headers: get_headers(content),
@@ -35,14 +37,16 @@ async function post(url, set_function, content = {}, extra_body = {}) {
         cache: 'no-cache',
         credentials: 'same-origin',
         referrerPolicy: 'no-referrer',
-        ...extra_body
+        ...extra_context
     }
-
-    const response = await fetch(url, body);
-    const data = await handle_response(response)
-    console.log(content)
-    const aaaa = JSON.stringify(data)
-    return set_function(aaaa)
+    try {
+        return await fetch(url, context)
+            .then(response => response.json())
+            .then(callback, handle_error_response)
+            .catch(handle_error_response)
+    } catch (error) {
+        return handle_error_response(error)
+    }
 }
 
 
